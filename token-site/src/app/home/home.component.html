@@ -1,0 +1,55 @@
+<div class="background">
+    <div fxLayoutAlign="center center" style="width: 100%; height: 95vh; ">
+        <div fxLayoutAlign="center center"  style="width: 45%; height: 100%;">
+            <div fxLayout="column" style="width:80%">
+          <h2 style="color: white; font-size: 5.8vh; margin:1.5vh 0;font-family: 'Trispace', sans-serif;">TSUKAW
+            LITTLE MEME BIG DREAMS</h2>
+            <p style="color:white">TSUKAW (TSKW) is a community-focused, decentralized cryptocurrency with instant rewards thanks to active users!</p>
+            <div fxLayoutAlign="space-evenly center" style="margin-top: 3vh;transform: translateX(-10vh);">
+                <button class="button-28" role="button">WHITEPAPER</button>
+                <button class="button-28" role="button">TELEGRAM</button>
+            </div>
+        </div>
+        </div>
+        <div fxLayoutAlign="center center" style="width: 45%;height: 100%;">
+            <img src="../../assets/images/logo.png" style="width:55vh">
+        </div>
+    </div>
+
+    <div style="width: 100%; height: 85vh;">
+        <div fxLayoutAlign="center center" style=" margin-bottom: 4vh;">
+           <h1>Why Choose Tsukaw</h1>
+        </div>
+      <div fxLayoutAlign="space-evenly center">
+        <div *ngFor="let atr of productAttributes;" fxLayout="column" fxLayoutAlign="space-evenly center" class="atr_boxes">
+            <img [src]="atr.image" style="width: 12vh;">
+            <h3>{{atr.attribute}}</h3>
+        </div>
+      </div>
+    </div>
+    <div fxLayoutAlign="center center" fxLayout="column">
+      <h2>COUNTDOWN TO BUY</h2>
+      <div style="width: 100%;" fxLayoutAlign="space-evenly center">
+        <div *ngFor="let time of timeText;" fxLayoutAlign="center center" fxLayout="column" style="transform: translateY(5vh);">
+           <p style="color:	#FFAC1C; font-size: 8vh;margin:-1vh 0">{{time.currentTime}}</p>
+           <p style="font-family: 'Roboto', sans-serif; font-weight: 600;font-size: 2.8vh; color: #440060">{{time.timeType}}</p>
+        </div>
+      </div>
+    </div>
+    <div style="width:100%;" fxLayoutAlign="center center">
+    <div fxLayoutAlign="space-evenly center" style="transform:translateY(25vh); width:70%; align-self: center;">
+        <button class="button-74" role="button" style="background-color: #90EE90 ;" onclick=" window.open('https://pandasale.finance/launchpad/0x885d24393e19978a8cf6a1a83b164962d9720a03/?chain=ETHW','_blank')">PANDASALE</button>
+        <button class="button-74" role="button" style="background-color: 	#FFCCCB;" onclick=" window.open('https://dexscreener.com/','_blank')">DEXSCREENER</button>
+        <button class="button-74" role="button" style="background-color: 	#FFFF66;" onclick=" window.open('https://www.lfgswap.finance/swap?outputCurrency=0x0f5706e3e274d8c7fdeab91c9c1022906e622475&utm_source=dexscreener&utm_medium=telegram','_blank')">TRADE ON LFGSWAP</button>
+      </div>
+    </div>
+    <footer style="position: absolute; bottom: 0;width: 100%; height:13vh; background-color:white;" fxLayoutAlign="space-between center">
+       <div style="transform: translateX(5vh);">
+        <p>Powered by Tsukaw.com</p>
+       </div>
+       <div>
+        <p>Powered by Tsukaw.com</p>
+       </div>
+       
+    </footer>
+</div>
