@@ -9,3 +9,9 @@ export interface TimeText {
     currentTime:string,
     timeType:TimeType
 }
+
+export interface ProviderRpcError extends Error {
+    message: string;
+    code: number;
+    data?: unknown;
+  }

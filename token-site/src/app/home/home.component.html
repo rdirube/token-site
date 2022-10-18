@@ -1,14 +1,34 @@
 <div class="background">
+  <header>
+    <div class="header" fxLayoutAlign="space-between center">
+     <div>
+       <img  src="../../assets/images/logo.png" style="width:8vh; transform: translateX(2.5vh);">
+     </div>
+     <div class="wallet" fxLayoutAlign="space-evenly center" (click)="chartActivate(true)">
+      <div fxLayoutAlign="center center">
+        <img src="../../assets/images/wallet.png" style="width:4vh;position: absolute;">  
+      </div> 
+       <div>
+        <p style="font-weight: 600;">{{connectionService.walletTokenAbr}}</p>
+       </div>
+     </div>
+    </div>
+  </header>
     <div fxLayoutAlign="center center" style="width: 100%; height: 95vh; ">
         <div fxLayoutAlign="center center"  style="width: 45%; height: 100%;">
             <div fxLayout="column" style="width:80%">
           <h2 style="color: white; font-size: 5.8vh; margin:1.5vh 0;font-family: 'Trispace', sans-serif;">TSUKAW
             LITTLE MEME BIG DREAMS</h2>
             <p style="color:white">TSUKAW (TSKW) is a community-focused, decentralized cryptocurrency with instant rewards thanks to active users!</p>
-            <div fxLayoutAlign="space-evenly center" style="margin-top: 3vh;transform: translateX(-10vh);">
-                <button class="button-28" role="button">WHITEPAPER</button>
+            <div fxLayout="column" style="transform: translateX(-10vh);" fxLayoutAlign="center space-evenly" >
+            <div fxLayoutAlign="space-evenly center" style="margin-top: 3vh;">
+                <button class="button-28" role="button" >WHITEPAPER</button>
                 <button class="button-28" role="button">TELEGRAM</button>
             </div>
+            <div fxLayoutAlign="center center" style="transform: translateY(3vh);">
+              <button class="button-5" role="button" (click)="connectWithMetamask()">METAMASK</button>
+            </div>
+          </div>
         </div>
         </div>
         <div fxLayoutAlign="center center" style="width: 45%;height: 100%;">
@@ -39,8 +59,8 @@
     <div style="width:100%;" fxLayoutAlign="center center">
     <div fxLayoutAlign="space-evenly center" style="transform:translateY(25vh); width:70%; align-self: center;">
         <button class="button-74" role="button" style="background-color: #90EE90 ;" onclick=" window.open('https://pandasale.finance/launchpad/0x885d24393e19978a8cf6a1a83b164962d9720a03/?chain=ETHW','_blank')">PANDASALE</button>
-        <button class="button-74" role="button" style="background-color: 	#FFCCCB;" onclick=" window.open('https://dexscreener.com/','_blank')">DEXSCREENER</button>
-        <button class="button-74" role="button" style="background-color: 	#FFFF66;" onclick=" window.open('https://www.lfgswap.finance/swap?outputCurrency=0x0f5706e3e274d8c7fdeab91c9c1022906e622475&utm_source=dexscreener&utm_medium=telegram','_blank')">TRADE ON LFGSWAP</button>
+        <button class="button-74" role="button" style="background-color: 	#FFCCCB;" onclick=" window.open('https://dexscreener.com/','_blank')">...</button>
+        <button class="button-74" role="button" style="background-color: 	#FFFF66;" onclick=" window.open('https://www.lfgswap.finance/swap?outputCurrency=0x0f5706e3e274d8c7fdeab91c9c1022906e622475&utm_source=dexscreener&utm_medium=telegram','_blank')">...</button>
       </div>
     </div>
     <footer style="position: absolute; bottom: 0;width: 100%; height:13vh; background-color:white;" fxLayoutAlign="space-between center">
@@ -49,7 +69,25 @@
        </div>
        <div>
         <p>Powered by Tsukaw.com</p>
-       </div>
-       
+       </div>    
     </footer>
+    <div class="wallet-chart-container" fxLayoutAlign="center start" *ngIf="walletActivate">
+        <div style="background-color: white;z-index:3000; position:fixed; border-radius:20px; width:62vh; height:80vh; transform: translateY(5vh);">
+           <div style="background-color: #E9FFFF; border-radius:20px 20px 0 0; border-bottom: 1px solid #C1ECFA;"  fxLayoutAlign="center center"> 
+              <h3>Your wallet</h3>
+              <img src="../../assets/images/close.png" style="transform: translateX(18vh);cursor:pointer" (click)="chartActivate(false)">
+           </div>
+           <div style="font-size: 2vh; transform: translate(2vh, 1.5vh); ">
+            <p style="font-weight: 500; font-size: 2.5vh;">YOUR ADRESS</p>
+            <div class="adress" fxLayoutAlign="space-between center">
+              <span  id="adress-text">{{connectionService.walletToken}} </span>
+              <img src="../../assets/images/copy.png" style="cursor: pointer;" (click)="copyAdress()">
+            </div>
+          </div>
+          <div fxLayoutAlign="center center" style="position: relative; transform:translateY(12vh)">
+            <button class="button-23" (click)="connectionService.disconnectWallet()">Disconnect Wallet</button>
+          </div>
+        </div>
+        
+    </div>
 </div>
