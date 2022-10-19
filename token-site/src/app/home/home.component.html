@@ -4,7 +4,7 @@
      <div>
        <img  src="../../assets/images/logo.png" style="width:8vh; transform: translateX(2.5vh);">
      </div>
-     <div class="wallet" fxLayoutAlign="space-evenly center" (click)="chartActivate(true)">
+     <div class="wallet" fxLayoutAlign="space-evenly center" (click)="chartActivate(true)" [ngStyle]="{'background-color' : connectionService.walletTokenAbr === 'Disconnected' ? '#FFCCCB' : '#90EE90'}">
       <div fxLayoutAlign="center center">
         <img src="../../assets/images/wallet.png" style="width:4vh;position: absolute;">  
       </div> 
@@ -26,7 +26,7 @@
                 <button class="button-28" role="button">TELEGRAM</button>
             </div>
             <div fxLayoutAlign="center center" style="transform: translateY(3vh);">
-              <button class="button-5" role="button" (click)="connectWithMetamask()">METAMASK</button>
+              <button class="button-5" role="button" *ngIf="!connectionService.isConnected" (click)="connectWithMetamask()">CONNECT WITH METAMASK</button>
             </div>
           </div>
         </div>
@@ -71,7 +71,8 @@
         <p>Powered by Tsukaw.com</p>
        </div>    
     </footer>
-    <div class="wallet-chart-container" fxLayoutAlign="center start" *ngIf="walletActivate">
+    <app-wallet-chart *ngIf="connectionService.walletActivate"></app-wallet-chart>
+    <!-- <div class="wallet-chart-container" fxLayoutAlign="center start" *ngIf="walletActivate">
         <div style="background-color: white;z-index:3000; position:fixed; border-radius:20px; width:62vh; height:80vh; transform: translateY(5vh);">
            <div style="background-color: #E9FFFF; border-radius:20px 20px 0 0; border-bottom: 1px solid #C1ECFA;"  fxLayoutAlign="center center"> 
               <h3>Your wallet</h3>
@@ -87,7 +88,6 @@
           <div fxLayoutAlign="center center" style="position: relative; transform:translateY(12vh)">
             <button class="button-23" (click)="connectionService.disconnectWallet()">Disconnect Wallet</button>
           </div>
-        </div>
-        
-    </div>
+        </div>    
+    </div> -->
 </div>

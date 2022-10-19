@@ -16,9 +16,8 @@ export class HomeComponent implements OnInit {
   public web3!:any;
   public walletTokenAbr!:string;
   public walletConnected!:boolean;
-  public walletActivate!:boolean;
   constructor(public connectionService: MetamaskconnectionService) {
-    this.walletActivate = false;
+    this.connectionService.walletActivate = false;
     this.walletConnected = false;
     this.productAttributes = [
       {
@@ -58,7 +57,7 @@ export class HomeComponent implements OnInit {
       },
     ]
 
-
+   
 
    }
 
@@ -70,22 +69,18 @@ export class HomeComponent implements OnInit {
     this.connectionService.connection()
   }
 
-  private getAdress():string {
-    return document.getElementById('adress-text')?.innerHTML as string
-  }
-
-  public async copyAdress() {
-      try {
-        await navigator.clipboard.writeText(this.getAdress());
-        console.log('Content copied to clipboard');
-      } catch (err) {
-        console.error('Failed to copy: ', err);
-      }   
-    }
+ 
 
 
 
     public chartActivate(act:boolean) {
-        this.walletActivate = act;
+      if(this.connectionService.walletToken !== 'Disconnected') {
+        this.connectionService.walletActivate = act;
+      }
     }
+
+
+    
+
+
 }

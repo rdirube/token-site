@@ -1,0 +1,24 @@
+<div class="wallet-chart-container" fxLayoutAlign="center start" >
+    <div style="background-color: white;z-index:3000; position:fixed; border-radius:20px; width:62vh; height:58vh; transform: translateY(5vh);">
+       <div style="background-color: #E9FFFF; border-radius:20px 20px 0 0; border-bottom: 1px solid #C1ECFA;"  fxLayoutAlign="center center"> 
+          <h3>Your wallet</h3>
+          <img src="../../assets/images/close.png" style="transform: translateX(18vh);cursor:pointer" (click)="chartActivate(false)">
+       </div>
+       <div style="font-size: 2vh; transform: translate(2vh, 1.5vh); ">
+        <p style="font-weight: 500; font-size: 2.5vh;">YOUR ADRESS</p>
+        <div class="adress" fxLayoutAlign="space-between center">
+          <span  id="adress-text">{{connectionService.walletToken}} </span>
+          <img src="../../assets/images/copy.png" style="cursor: pointer;" (click)="copyAdress()">
+        </div>
+      </div>
+      <div fxLayoutAlign="center center" style="width: 100%;">
+      <div style="transform:translateY(6vh); width: 95%; background-color: #fff700;height:7.5vh; padding: 0 3vh; border-radius: 20px;" fxLayoutAlign="space-between center">
+         <span style="font-weight: 600;">Balance ETH</span>
+         <span style="font-weight: 600;">{{connectionService.balance}}</span>
+      </div>
+    </div>
+      <div fxLayoutAlign="center center" style="position: relative; transform:translateY(12vh)">
+        <button class="button-23" (click)="connectionService.disconnectWallet()">Disconnect Wallet</button>
+      </div>
+    </div>    
+</div>
